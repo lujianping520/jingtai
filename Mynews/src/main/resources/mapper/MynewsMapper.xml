@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.haina.news.dao.MynewsDao">
+	<select id="findAll" resultType="mynews">
+		select * from mynews
+	</select>
+	<insert id="add" parameterType="Mynews">
+	insert mynews values (default,#{title},#{content},#{source},#{zaiyao},null,null)
+	</insert>
+	<select id="findbyid" parameterType="Integer" resultType="Mynews">
+		select * from mynews where id=#{id}
+	</select>
+	<select id="staticfun" resultType="Mynews">
+		select * from mynews ORDER BY id DESC LIMIT 1
+	</select>
+	<update id="updatemn" parameterType="Mynews">
+	update mynews SET url1=#{url1},url2=#{url2} where id=#{id}
+	</update>
+	
+</mapper>
